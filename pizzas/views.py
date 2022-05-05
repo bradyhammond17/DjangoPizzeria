@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Pizza
+from .models import Pizza, Toppings
 # Create your views here.
 def index(request):
     return render(request, 'pizzas/index.html')
@@ -16,8 +16,8 @@ def pizzas(request):
 def pizza(request, pizza_id):
     ## view must be consistent with url
     pizza = Pizza.objects.get(id=pizza_id)
-    entries = pizza.toppings_set.order_by('-topping_name')
+    toppings = pizza.toppings_set.order_by('-topping_name')
 
-    context = {'pizza':pizza,'entries':entries}
+    context = {'pizza': pizza, 'toppings': toppings}
 
     return render(request, 'pizzas/pizza.html', context)

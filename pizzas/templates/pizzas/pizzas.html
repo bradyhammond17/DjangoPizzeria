@@ -9,7 +9,7 @@
     {% for p in pizzas %}
 
     <li>
-    <a href="{% url 'pizzas:pizzas' %}">{{ p }}</a>   
+    <a href="{% url 'pizzas:pizza' p.id %}">{{ p }}</a>   
     </li>
     {% empty %}
     <li>No pizzas have been added yet.</li>

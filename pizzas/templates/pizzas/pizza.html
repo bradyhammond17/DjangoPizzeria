@@ -7,10 +7,9 @@
 </p>
 
 <ul>
-    {% for e in entries %}
+    {% for t in toppings %}
     <li>
-        <p> {{ e.text }}</p>
-        <p> {{ e.topping_name }}</p>
+        <p> {{ t.topping_name }}</p>
     </li>
     {% empty %}
     <li> There are no entries for this topic yet.</li>
