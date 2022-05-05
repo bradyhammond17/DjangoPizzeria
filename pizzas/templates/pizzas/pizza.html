@@ -1,0 +1,21 @@
+{% extends "pizzas/base.html" %}
+
+
+{% block content %}
+<p>
+    Pizza: {{ pizza }}
+</p>
+
+<ul>
+    {% for e in entries %}
+    <li>
+        <p> {{ e.text }}</p>
+        <p> {{ e.topping_name }}</p>
+    </li>
+    {% empty %}
+    <li> There are no entries for this topic yet.</li>
+    {% endfor %}
+</ul>
+
+
+{% endblock content %}
