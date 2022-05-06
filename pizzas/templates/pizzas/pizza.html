@@ -1,22 +1,18 @@
 {% extends "pizzas/base.html" %}
 
+{% block header %}
+    <h2>{{ pizza }} Pizza - check out our awesome toppings!</h2>
+{% endblock header %}
 
 {% block content %}
-<p>
-    Pizza: {{ pizza }}
-</p>
-
-<ul>
-    {% for t in toppings %}
-    <li>
-        <p> {{ t.topping_name }}</p>
-    </li>
-    {% empty %}
-    <li> There are no entries for this topic yet.</li>
+    {% for topping in toppings %}
+        <div class="panel panel-default">
+            <div class="panel-body">
+               {{ topping.topping_name|linebreaks }}
+            </div>
+        </div> <!-- panel -->
     {% endfor %}
-</ul>
-<p>
-    {% load static %} <img src="{% static 'pizzas/media/' %}{{pizza}}.jpg"  alt= {{ pizza }} />
-</p>
-
+    <p>
+        {% load static %} <img src="{% static 'pizzas/media/' %}{{pizza}}.jpg"  alt= {{ pizza }} />
+    </p>
 {% endblock content %}
